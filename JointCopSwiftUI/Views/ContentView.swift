@@ -24,18 +24,25 @@ struct ContentView: View {
             Image("im-mars-rover-green")
               .resizable()
               .frame(width:380, height:180)
-              .cornerRadius(30)
-            Image("im-mars-rover")
-              .resizable()
-              .frame(width:380, height:180)
-              .cornerRadius(30)
+              .clipShape(RoundedRectangle(cornerRadius: 50))
               .onTapGesture {
                 withAnimation(){
                   isTapped.toggle()
                 }
               }
-              .offset(x: isTapped ? -250 : 0 )
-              .scaleEffect(isTapped ? 1.3 : 1 )
+              .offset(x: isTapped ? 10 : 0 )
+              .scaleEffect(isTapped ? 1.2 : 1 )
+            Image("im-mars-rover")
+              .resizable()
+              .frame(width:380, height:180)
+              .clipShape(RoundedRectangle(cornerRadius: 50))
+              .onTapGesture {
+                withAnimation(){
+                  isTapped.toggle()
+                }
+              }
+              .offset(x: isTapped ? -310 : 0 )
+              .scaleEffect(isTapped ? 1.2 : 1 )
           }
 
           HStack(alignment: .center, spacing: 40) {

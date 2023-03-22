@@ -19,11 +19,11 @@ struct RoversView: View {
           Image("im-mars-rover-green")
             .resizable()
             .frame(width:380, height:180)
-          .cornerRadius(30)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
           Image("im-mars-rover")
             .resizable()
             .frame(width:380, height:180)
-            .cornerRadius(30)
+            .clipShape(RoundedRectangle(cornerRadius: 50))
             .onTapGesture {
               withAnimation(.spring()){
                 isTapped.toggle()
