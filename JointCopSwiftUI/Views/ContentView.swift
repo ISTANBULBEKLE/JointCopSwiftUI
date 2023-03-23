@@ -9,81 +9,79 @@ import SwiftUI
 
 struct ContentView: View {
   @State var isTapped =  false
+
   var body: some View {
 
     NavigationView {
-      ZStack{
+
+      ZStack {
         Color.BackgroundThemeColor.edgesIgnoringSafeArea(.all)
         VStack(alignment: .center, spacing: 50) {
           Text(Constants().HeaderText)
             .font(.custom("Inter-Medium", fixedSize: 24))
           Text(Constants().IntroductionText)
-            .font(.custom("Inter-Medium", fixedSize: 20))
+            .font(.custom("Inter-Regular", fixedSize: 20))
             .multilineTextAlignment(.center)
-          ZStack {
+          ZStack(alignment: .center){
             Image("im-mars-rover-green")
               .resizable()
-              .frame(width:380, height:180)
+              .frame(width:370, height: 170)
               .clipShape(RoundedRectangle(cornerRadius: 50))
               .onTapGesture {
                 withAnimation(){
                   isTapped.toggle()
                 }
               }
-              .offset(x: isTapped ? 10 : 0 )
-              .scaleEffect(isTapped ? 1.2 : 1 )
+              .offset(x: isTapped ? 10 : 0)
+              .scaleEffect(isTapped ? 1.3 : 1)
             Image("im-mars-rover")
               .resizable()
-              .frame(width:380, height:180)
+              .frame(width:370, height: 170)
               .clipShape(RoundedRectangle(cornerRadius: 50))
               .onTapGesture {
                 withAnimation(){
                   isTapped.toggle()
                 }
               }
-              .offset(x: isTapped ? -310 : 0 )
-              .scaleEffect(isTapped ? 1.2 : 1 )
+              .offset(x: isTapped ? -310 : 0)
+              .scaleEffect(isTapped ? 1.3 : 1)
           }
-
-          HStack(alignment: .center, spacing: 40) {
+          HStack(alignment: .center, spacing: 30) {
             NavigationLink(destination: RoversView()) {
-
               Text("Rovers")
                 .frame(width:170, height:37)
                 .background(Color.ButtonThemeColor)
-                .cornerRadius(30)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
                 .font(.custom("Inter-SemiBold", fixedSize: 20))
                 .foregroundColor(.black)
             }
             NavigationLink(destination: PicOfTheDayView()) {
-
-              Text("Pic of the day")
+              Text("Pic Of The Day")
                 .frame(width:170, height:37)
                 .background(Color.ButtonThemeColor)
-                .cornerRadius(30)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
                 .font(.custom("Inter-SemiBold", fixedSize: 20))
                 .foregroundColor(.black)
-
             }
           }
           .navigationTitle("Home")
           Spacer()
-          VStack(alignment: .center) {
-            HStack(alignment: .center, spacing: 10){
-              Image(systemName: "sun.dust.circle")
+            HStack(alignment:.center, spacing: 10){
+              Image("Sun")
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width:30, height: 30)
                 .foregroundColor(.white)
               Text(Constants().FooterText)
                 .font(.custom("Inter-SemiBold", fixedSize: 14))
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth:.infinity)
             .frame(maxHeight: 60)
             .background(Color.FooterThemeColor)
-          }
         }
       }
+
     }
+
   }
 }
 

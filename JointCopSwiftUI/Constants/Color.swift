@@ -12,5 +12,4 @@ extension Color{
   static var BackgroundThemeColor = Color("Background")
   static var ButtonThemeColor = Color("ButtonColor")
   static var FooterThemeColor = Color("Footer")
-
 }
